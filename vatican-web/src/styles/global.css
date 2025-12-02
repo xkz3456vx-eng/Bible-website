@@ -1,0 +1,73 @@
+/* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --vatican-gold: #D4AF37;
+  --vatican-gold-light: #F4E4BC;
+  --vatican-white: #FFFFFF;
+  --vatican-red: #800000;
+  --vatican-purple: #4B0082;
+  --vatican-green: #006400;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --bg-paper: #FDFBF7;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bg-paper);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+  color: var(--vatican-gold);
+  margin-top: 0;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.ornament-border {
+  border: 2px solid var(--vatican-gold);
+  border-radius: 4px;
+  padding: 1rem;
+  position: relative;
+}
+
+.ornament-border::before {
+  content: "✝";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-paper);
+  padding: 0 10px;
+  color: var(--vatican-gold);
+  font-size: 1.2rem;
+}
+
+/* Liturgical Colors */
+.liturgy-green { border-left: 5px solid var(--vatican-green); }
+.liturgy-violet { border-left: 5px solid var(--vatican-purple); }
+.liturgy-red { border-left: 5px solid var(--vatican-red); }
+.liturgy-white { border-left: 5px solid var(--vatican-gold); } /* White usually paired with gold */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
