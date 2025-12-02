@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecclesia Gallia - Lectures & Bible</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <div class="brand">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Emblem_of_the_Papacy_SE.svg/113px-Emblem_of_the_Papacy_SE.svg.png" alt="Emblème" class="emblem">
+                <div class="brand-text">
+                    <h1>Ecclesia Gallia</h1>
+                    <span>Lectures & Bible</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <button id="btn-readings" class="nav-btn active" onclick="switchView('readings')">
+                    <!-- Calendar Icon -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Liturgie
+                </button>
+                <button id="btn-bible" class="nav-btn" onclick="switchView('bible')">
+                    <!-- Book Icon -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    Bible
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Readings View -->
+        <section id="view-readings" class="view active">
+            <div class="date-header">
+                <h2 id="liturgy-date">Chargement...</h2>
+                <div id="liturgy-color-badge" class="color-badge" style="display:none;"></div>
+            </div>
+            <div id="readings-container" class="readings-grid">
+                <!-- Content injected via JS -->
+                <div class="loading">Chargement des lectures du jour...</div>
+            </div>
+        </section>
+
+        <!-- Bible View -->
+        <section id="view-bible" class="view" style="display: none;">
+            <div class="bible-controls ornament-border">
+                <div class="select-group">
+                    <select id="bible-book-select" onchange="onBookChange()"></select>
+                    <select id="bible-chapter-select" onchange="onChapterChange()"></select>
+                </div>
+
+                <div id="bible-text-display" class="bible-text">
+                    <!-- Bible text injected via JS -->
+                </div>
+
+                <div class="bible-nav-footer">
+                    <button id="btn-prev-chap" onclick="prevChapter()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        Précédent
+                    </button>
+                    <button id="btn-next-chap" onclick="nextChapter()">
+                        Suivant
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Ecclesia Gallia. Lectures de l'AELF. Bible Traduction A.P.E.E.</p>
+    </footer>
+
+    <!-- Load Data first -->
+    <script src="js/bible-data.js"></script>
+    <!-- Load App Logic -->
+    <script src="js/app.js"></script>
+</body>
+</html>
